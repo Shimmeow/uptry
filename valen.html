@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>harvey.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            width: 97%;
+            height: 76vh;
+            background-color: beige;
+            max-height: 76vh;
+            overflow: hidden;
+        }
+        #confirm {
+            margin: 150px 0 0 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .button {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .yes {
+          padding: 0 5% 5% 5%;
+        }
+
+        .button button {
+            height: 30px;
+            width: 90px;
+        }
+
+        #yesSection {
+            display: none;
+            text-align: center;
+        }
+        
+        #yesSection img {
+          height: auto;
+          width: 300px;
+        }
+    </style>
+</head>
+<body>
+  <div id="confirm">
+    
+    <h2>Will You Be My Valentine?</h2>
+      <div class="button">
+      <div class="yes">
+      <button id="yess" onclick="showYes()">Yes</button>
+      </div>
+      <div class="no">
+      <button id="noo" onclick="noPressed()">No</button>
+      </div>
+      </div>
+  </div>
+
+  <div id="yesSection">
+    <h2>Yiieee</h2>
+    <img src="https://gifsec.com/wp-content/uploads/2022/09/happy-valentine-gif-3.gif">
+  </div>
+
+  <div id="noSection">
+
+  </div>
+
+  <script>
+  let yesButtonWidth = 90;
+  let yesButtonHeight = 30;
+  let yesButtonFont = 20;
+  
+    function showYes() {
+      document.getElementById('yesSection').style.display = 'block';
+      document.getElementById('confirm').style.display = 'none';
+    }
+
+    function showNo() {
+      document.getElementById('confirm').style.display = 'none';
+    }
+    
+    function noPressed(){
+      yesButtonFont+= 5;
+      yesButtonWidth += 10;
+      yesButtonHeight += 10;
+      document.getElementById('yess').style.width=`${yesButtonWidth}px`;
+      
+      document.getElementById('yess').style.height=`${yesButtonHeight}px`;
+      
+      document.getElementById('yess').style.fontSize=`${yesButtonFont}px`;
+    }
+    
+    </script>
+</body>
+</html>
