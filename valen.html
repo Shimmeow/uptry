@@ -8,14 +8,19 @@
         body{
             width: 97%;
             height: 76vh;
-            background-color: beige;
+            background-color: #262424 ;
             max-height: 76vh;
             overflow: hidden;
         }
         #confirm {
-            margin: 150px 0 0 0;
+            margin: 100px 0 0 0;
             text-align: center;
             overflow: hidden;
+        }
+        
+        #confirm img {
+          height: 200px;
+          width: auto;
         }
 
         .button {
@@ -25,12 +30,19 @@
         }
         
         .yes {
-          padding: 0 5% 5% 5%;
+          padding: 0 0 5% 0;
+        }
+        
+        .no{
+          padding: 0 0 5% 5%;
         }
 
         .button button {
-            height: 30px;
-            width: 90px;
+            height: 40px;
+            width: 100px;
+            background-color: #c9302c;
+            color: white;
+            border: white 1px solid;
         }
 
         #yesSection {
@@ -40,12 +52,17 @@
         
         #yesSection img {
           height: auto;
-          width: 300px;
+          width: 320px;
+          border-radius: 10px;
         }
+       h2, p{
+         color: white;
+       }
     </style>
 </head>
 <body>
   <div id="confirm">
+    <img src="https://media.tenor.com/p96XUHeS4q8AAAAi/peach-and-goma-goma.gif">
     
     <h2>Will You Be My Valentine?</h2>
       <div class="button">
@@ -59,8 +76,17 @@
   </div>
 
   <div id="yesSection">
-    <h2>Yiieee</h2>
-    <img src="https://gifsec.com/wp-content/uploads/2022/09/happy-valentine-gif-3.gif">
+    <h2>Love is in the air!</h2>
+    <img src="https://media.tenor.com/TBwDXMpmFXUAAAAi/peach-and-goma-peach-goma.gif">
+
+    <p>My Dearest Valentine,</p>
+  
+    <p>Let's make this Valentine's Day unforgettable with moments filled with laughter, joy, and endless love.</p>
+    <p>Here's to us, to our journey together, and to the many more memories we'll create. I am so grateful to have you in my life.</p>
+  
+    <p>You are my rock, my confidant, and my greatest blessing. I cherish you more than words can express.</p>
+  
+    <p>Happy Valentine's Day!</p>
   </div>
 
   <div id="noSection">
@@ -68,9 +94,12 @@
   </div>
 
   <script>
-  let yesButtonWidth = 90;
-  let yesButtonHeight = 30;
+  let yesButtonWidth = 100;
+  let yesButtonHeight = 40;
   let yesButtonFont = 20;
+  let noButton = document.getElementById('noo');
+  let noButtonText = ["No", "Are you sure?", "Really?", "Really Sure?" , "🥹", "Nope"];
+  let currentTextIndex = 0;
   
     function showYes() {
       document.getElementById('yesSection').style.display = 'block';
@@ -82,16 +111,30 @@
     }
     
     function noPressed(){
-      yesButtonFont+= 5;
-      yesButtonWidth += 10;
-      yesButtonHeight += 10;
-      document.getElementById('yess').style.width=`${yesButtonWidth}px`;
-      
-      document.getElementById('yess').style.height=`${yesButtonHeight}px`;
-      
-      document.getElementById('yess').style.fontSize=`${yesButtonFont}px`;
-    }
+    yesButtonFont += 5;
+    yesButtonWidth += 10;
+    yesButtonHeight += 10;
+    document.getElementById('yess').style.width = `${yesButtonWidth}px`;
+    document.getElementById('yess').style.height = `${yesButtonHeight}px`;
+    document.getElementById('yess').style.fontSize = `${yesButtonFont}px`;
     
+    let imageUrls = [
+        "https://media.tenor.com/t7yxNky6vVoAAAAi/sebusun-mocha.gif",
+        "https://media.tenor.com/FxAkwHS0MDkAAAAi/sad.gif",
+        "https://media.tenor.com/UdThavVus9oAAAAi/peach-and.gif",
+        "https://media.tenor.com/9aX15qAKeQUAAAAi/cute.gif",
+        "https://media.tenor.com/7Qz2iamu4egAAAAi/peach-goma-sad-tears.gif",
+        "https://media.tenor.com/PNJrmGJLtsUAAAAi/cutie-cat.gif"
+    ];
+    
+    let confirmImg = document.getElementById('confirm').getElementsByTagName('img')[0];
+    
+    confirmImg.src = imageUrls[currentTextIndex];
+    
+    currentTextIndex = (currentTextIndex + 1) % imageUrls.length;
+    
+    noButton.textContent = noButtonText[currentTextIndex];
+}
     </script>
 </body>
 </html>
